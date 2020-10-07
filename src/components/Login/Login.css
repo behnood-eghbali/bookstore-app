@@ -1,0 +1,13 @@
+body {
+    background-color: #744687;
+}
+
+.Login {
+    margin-top: 200px;
+}
+
+p {
+    margin-left: 100px;
+    color: gray;
+    font-size: small;
+}
