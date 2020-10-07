@@ -11,7 +11,7 @@ export default function Home() {
                 <IconButton aria-label="delete">
                     <PersonIcon />
                 </IconButton>
-                <p>ندا میرآقایی</p>
+                <p>user</p>
                 <img src={logo} className="App-logo" alt="logo" />
             </header>
         </div>
