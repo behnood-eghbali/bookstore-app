@@ -74,7 +74,6 @@ function Login(props) {
                   <Paper elevation={3}>
                       <br />
                       <form onSubmit={onSubmit} noValidate>
-                        <p>Email Address</p>
                         <TextField 
                           id="outlined-basic"
                           label="Email"
@@ -83,7 +82,6 @@ function Login(props) {
                           value={values.email}
                           onChange={onChange}
                         />
-                        <p>Password (8 characters minimum)</p>
                         <TextField
                           id="outlined-basic"
                           label="Password"
