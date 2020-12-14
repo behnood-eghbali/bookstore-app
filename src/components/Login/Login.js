@@ -98,7 +98,7 @@ function Login(props) {
                           variant="text"
                           color="primary"
                         >
-                        ورود
+                        Sign in
                         </SubmitButton>
                       </form>
                       {Object.keys(errors).length > 0 && (
