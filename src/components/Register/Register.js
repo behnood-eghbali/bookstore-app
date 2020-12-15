@@ -3,15 +3,11 @@ import {Link} from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
-// import FormControlLabel from '@material-ui/core/FormControlLabel'
-// import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
-// import { useForm } from 'react-hook-form'
+import Checkbox from '@material-ui/core/Checkbox'
 import { AuthContext } from '../../contexts/AuthContext'
-// import { useMutation } from '@apollo/react-hooks'
-// import gql from 'graphql-tag'
-import './Login.css'
+import './Register.css'
 
 const SubmitButton = withStyles((theme) => ({
   root: {
@@ -23,37 +19,9 @@ const SubmitButton = withStyles((theme) => ({
   },
 }))(Button)
 
-function Login() {
+function Register() {
 
-  const { values, handleChange, handleSubmit } = useContext(AuthContext)
-
-/*   const [ errors, setErrors ] = useState({})
-
-  const [ values, setValues ] = useState({
-    email: '',
-    password: ''
-  })
-
-  const onChange = (e) => {
-    setValues({...values, [e.target.name]: e.target.value})
-  }
-
-  const [ addUser, {loading} ] = useMutation(LOGIN_USER, {
-    update(_, result) {
-      console.log(result)
-      props.history.push('/')
-    },
-    onError(err){
-      console.log(err.graphQLErrors[0].extensions.exception.errors)
-      setErrors(err.graphQLErrors[0].extensions.exception.errors)
-    },
-    variables: values
-  })
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-    addUser()
-  } */
+  const { values, checked, handleChange, handleSubmit, handleCheck } = useContext(AuthContext)
 
   return (
       <div className="Login">
@@ -61,8 +29,17 @@ function Login() {
               <Grid item xs={3} />
               <Grid item xs={6}>
                   <Paper elevation={3}>
-                      <h2>Sign in to Home page</h2>
+                      <h2>Sign up for Home page</h2>
                       <form onSubmit={handleSubmit} noValidate>
+                        <TextField 
+                          id="outlined-basic"
+                          label="Username"
+                          variant="outlined"
+                          name="username"
+                          value={values.username}
+                          onChange={handleChange}
+                        />
+                        <br />
                         <TextField 
                           id="outlined-basic"
                           label="Email"
@@ -81,6 +58,7 @@ function Login() {
                           value={values.password}
                           onChange={handleChange}
                         />
+                        <br />
                         <Link to="/Home">
                           <SubmitButton 
                             type="submit"
@@ -89,25 +67,20 @@ function Login() {
                             variant="text"
                             color="primary"
                           >
-                          Sign in
+                          Sign up
                           </SubmitButton>
                         </Link>
                       </form>
-                      {/*                       
-                      {Object.keys(errors).length > 0 && (
-                        <div className="ui error message">
-                          <ul className="list">
-                            {Object.values(errors.map((value) => (
-                              <li key={value}>{value}</li>
-                            )))}
-                          </ul>
-                        </div>
-                      )}
-                      */}
-                      <p>Don't have an account?</p>
-                      <Link to="/Register">
+                      <p>Remember me</p>
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleCheck}
+                        inputProps={{ 'aria-label': 'default checkbox' }}
+                      />
+                      <p>Already have an account?</p>
+                      <Link to="/">
                         <Button variant="contained" color="primary">
-                        Sign up
+                        Sign in
                         </Button>
                       </Link>
                   </Paper>
@@ -117,24 +90,5 @@ function Login() {
       </div>
   )
 }
-/* 
-const LOGIN_USER = gql`
-mutation register(
-  $email: String!
-  $password: String!
-){
-  login(
-    loginInput: {
-      email: $email
-      password: $password
-    }
-  ){
-    id
-    email
-  }
-}
-` */
 
-export default Login
-
-
+export default Register
