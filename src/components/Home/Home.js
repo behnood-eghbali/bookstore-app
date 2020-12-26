@@ -3,10 +3,13 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 // import { createMuiTheme } from '@material-ui/core/styles'
@@ -48,21 +51,64 @@ function Home() {
                 <Button color="inherit">Logout</Button>
             </Toolbar>
         </AppBar>
-        <Grid container>
-            <Grid item xs={3} />
-            <Grid item xs={6}>
-                <Card className="card">
-                    <CardContent>
-                      <h2>Hello {values.username}</h2>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">More Info</Button>
-                    </CardActions>
-                </Card>
+        <Grid container className="Grid">
+            <Grid item xs={2} />
+            <Grid item xs={8}>
+                <Paper>
+                    <Typography variant="h5" component="h3">
+                        Hi {values.username}! Check out our new books:
+                    </Typography>
+                    <Button size="small">Library</Button>
+                </Paper>
+                <Grid container className="Grid">
+                    <Grid item xs={4}>
+                        <Card>
+                            <CardActionArea>
+                                <CardMedia
+                                imageUrl=???
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    ???
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                View
+                                </Button>
+                                <Button size="small" color="primary">
+                                Add To Cart
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Card>
+                            <CardActionArea>
+                                <CardMedia
+                                image=???
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    ???
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                View
+                                </Button>
+                                <Button size="small" color="primary">
+                                Add To Cart
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                </Grid>
             </Grid>
-            <Grid item xs={3} />
+            <Grid item xs={2} />
         </Grid>
-
       </div>
   );
 }
